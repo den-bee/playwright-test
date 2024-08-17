@@ -45,7 +45,7 @@ test.describe("Generate BIS number", () => {
 
     // Make sure month in BIS number equals 20
     const bisNumber = await page.locator('[id="bis-text"]').textContent();
-    // Splice string to get month
+    // Get month from string
     const monthValue = bisNumber?.substring(2, 4);
     // Convert string to number
     const monthValueNumber = parseInt(monthValue || "");
@@ -68,13 +68,13 @@ test.describe("Generate BIS number", () => {
     // Generate BIS number
     await page.getByRole("button", {name: "Generate"}).click();
 
-    // Make sure month in BIS number equals 20
+    // Get generated BIS number
     const bisNumber = await page.locator('[id="bis-text"]').textContent();
-    // Splice string to get month
+    // Get month from string
     const monthValue = bisNumber?.substring(2, 4);
     // Convert string to number
     const monthValueNumber = parseInt(monthValue || "");
-
+    // Make sure month in BIS number equals 20
     await expect(monthValueNumber).toEqual(48);
   });
 
@@ -138,7 +138,7 @@ test.describe("Generate BIS number", () => {
     // Select amount
     await page.getByRole("spinbutton", {name: "amount"}).fill("3");
     // Clear amount
-    await page.locator('[id="\\/bis-3-clear-button"]').click();
+    await page.locator('[id="/bis-3-clear-button"]').click();
     // Get current amount value
     const amount = await page
       .getByRole("spinbutton", {name: "amount"})
