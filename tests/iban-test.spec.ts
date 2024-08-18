@@ -82,10 +82,9 @@ test.describe("Tests not dependend on country selection", () => {
     // Clear amount
     await page.locator('[id="\\/iban-1-clear-button"]').click();
     // Get current amount value
-    const amount = await page
-      .getByRole("spinbutton", {name: "amount"})
-      .textContent();
+    const amount = await page.getByRole("spinbutton", {name: "amount"});
+
     // Check if input field is cleared
-    await expect(amount).toEqual("");
+    await expect(amount).toBeEmpty();
   });
 });
