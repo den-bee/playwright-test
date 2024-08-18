@@ -20,6 +20,7 @@ test.describe("Generate BIS number", () => {
     await expect(moreInfo).toBeVisible();
   });
 
+  // This test does not pass. I can't see why but I thought it would be good to let it sit here so I figure out later what I did wrong
   test("When pressing LESS INFO button, more info text should not be visible", async ({
     page,
   }) => {
